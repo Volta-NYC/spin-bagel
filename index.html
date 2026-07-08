@@ -452,6 +452,49 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   text-transform: uppercase; color: var(--forest);
   margin-top: 12px; display: block;
 }
+.menu-category {
+  background: var(--wheat);
+  padding: 36px 38px;
+}
+.menu-category-title {
+  font-family: 'Cinzel'; font-weight: 700;
+  font-size: 1rem; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--ink);
+  margin-bottom: 20px;
+}
+.menu-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.menu-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: start;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(26,20,16,0.12);
+}
+.menu-row:last-child { border-bottom: none; padding-bottom: 0; }
+.menu-item-name {
+  font-family: 'Cinzel'; font-weight: 700;
+  font-size: 0.82rem; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--ink);
+}
+.menu-item-desc {
+  font-size: 0.82rem; line-height: 1.6;
+  color: var(--stone); font-style: italic; margin-top: 4px;
+}
+.menu-price {
+  font-family: 'Barlow Condensed'; font-weight: 700;
+  font-size: 1.05rem; letter-spacing: 0.06em;
+  color: var(--forest); white-space: nowrap;
+}
+.menu-note {
+  font-size: 0.82rem; line-height: 1.6;
+  color: var(--stone); font-style: italic;
+}
 
 /* ── CRAFT ── */
 .craft-section {
@@ -1070,53 +1113,132 @@ footer {
       <h2 class="sec-title"><span class="a">Menu</span></h2>
     </div>
     <div class="menu-grid" data-stagger>
-      <div class="menu-item">
-        <div class="menu-num">1</div>
-        <div class="menu-info">
-          <div class="menu-name">The Classic Spin</div>
-          <p class="menu-desc">Sesame, everything, or plain — our flagship bagel with 36-hour cold-fermented dough and a crackle you'll hear across the room.</p>
-          <span class="menu-tag">Available Daily</span>
-        </div>
+      <div class="menu-category">
+        <h3 class="menu-category-title">Sourdough Spin Bagels</h3>
+        <ul class="menu-list">
+          <li class="menu-row"><div><div class="menu-item-name">Regular Bagel</div><p class="menu-item-desc">Plain, sesame, poppy, everything, onion, garlic, or salt.</p></div><span class="menu-price">$2.08</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Specialty Bagel Spin</div><p class="menu-item-desc">Onion focaccia, zaatar, rosemary & olive oil, cheddar jalapeno, or cinnacrunch.</p></div><span class="menu-price">$3.12</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Baker's Dozen</div><p class="menu-item-desc">13 regular bagels. Specialty bagels add $1.04 each.</p></div><span class="menu-price">$24.69</span></li>
+        </ul>
       </div>
-      <div class="menu-item">
-        <div class="menu-num">2</div>
-        <div class="menu-info">
-          <div class="menu-name">Smoked Heritage</div>
-          <p class="menu-desc">Wild-caught salmon, house-whipped cream cheese, capers, shaved red onion. An ode to what a proper bagel can be.</p>
-          <span class="menu-tag">Morning Only</span>
-        </div>
+
+      <div class="menu-category">
+        <h3 class="menu-category-title">Greek Spreads & Pies</h3>
+        <ul class="menu-list">
+          <li class="menu-row"><div><div class="menu-item-name">Kopanisti</div><p class="menu-item-desc">Greek spread, available by the 1/2 lb or on a bagel.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Hummus</div><p class="menu-item-desc">Greek spread, available by the 1/2 lb or on a bagel.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Greek Pies</div><p class="menu-item-desc">Olive & feta, kasseri grecpanada, tiropita, or bougatsa.</p></div><span class="menu-price">$5.72</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Yvonne's Spanakopita</div></div><span class="menu-price">$7.54</span></li>
+        </ul>
       </div>
-      <div class="menu-item">
-        <div class="menu-num">3</div>
-        <div class="menu-info">
-          <div class="menu-name">The Labyrinth Spread</div>
-          <p class="menu-desc">Our signature scallion cream cheese with roasted garlic, finished with cold-pressed olive oil. A maze of flavor.</p>
-          <span class="menu-tag">Signature</span>
-        </div>
+
+      <div class="menu-category">
+        <h3 class="menu-category-title">Spin Butters & Jellies</h3>
+        <ul class="menu-list">
+          <li class="menu-row"><div><div class="menu-item-name">Salted Butter</div><p class="menu-item-desc">Available by the 1/2 lb or on a bagel.</p></div><span class="menu-price">$6.50 / $3.64</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Honey Butter</div><p class="menu-item-desc">Available by the 1/2 lb or on a bagel.</p></div><span class="menu-price">$7.52 / $4.11</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Peanut Butter</div><p class="menu-item-desc">Available by the 1/2 lb or on a bagel.</p></div><span class="menu-price">$5.20 / $4.16</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Spin Jellies</div><p class="menu-item-desc">Grape or strawberry, 1/4 lb.</p></div><span class="menu-price">$2.60</span></li>
+        </ul>
       </div>
-      <div class="menu-item">
-        <div class="menu-num">4</div>
-        <div class="menu-info">
-          <div class="menu-name">Ancient Grain</div>
-          <p class="menu-desc">Einkorn and spelt blend, slow-fermented 48 hours. For those who know that older is often better.</p>
-          <span class="menu-tag">Limited Run</span>
-        </div>
+
+      <div class="menu-category">
+        <h3 class="menu-category-title">Flavored Schmears</h3>
+        <ul class="menu-list">
+          <li class="menu-row"><div><div class="menu-item-name">Plain</div><p class="menu-item-desc">1/2 lb.</p></div><span class="menu-price">$6.23</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Coffee Toffee</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Dulce de Leche</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Fig</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Strawberry</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Coco Cinna Raisin</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Vegan</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Lox Spread</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Kalamata Olive</div></div><span class="menu-price">$8.49 / $7.64</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Spicy Feta</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Scallion & Garlic</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Bacon Jalapeno</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Vegetable</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Sriracha Chive</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+        </ul>
       </div>
-      <div class="menu-item">
-        <div class="menu-num">5</div>
-        <div class="menu-info">
-          <div class="menu-name">The Forest</div>
-          <p class="menu-desc">Herb cream cheese with wild garlic, fresh dill, and charred leek. Like a walk through the woods, compressed into a bite.</p>
-          <span class="menu-tag">Seasonal</span>
-        </div>
+
+      <div class="menu-category">
+        <h3 class="menu-category-title">Bagel Spinmates</h3>
+        <ul class="menu-list">
+          <li class="menu-row"><div><div class="menu-item-name">Pooh Bear</div><p class="menu-item-desc">Cinnacrunch with honey butter.</p></div><span class="menu-price">$5.15</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Fig Deal, Bro</div><p class="menu-item-desc">Rosemary olive oil & fig cream cheese.</p></div><span class="menu-price">$6.05</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">The Storm</div><p class="menu-item-desc">Cheddar jalapeno & bacon jalapeno.</p></div><span class="menu-price">$6.05</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Veggin Out</div><p class="menu-item-desc">Veggie cream cheese, cucumber, tomato, onion.</p></div><span class="menu-price">$6.83</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Kiki</div><p class="menu-item-desc">Pico de Greeko & Kalamata olive cream cheese.</p></div><span class="menu-price">$8.27</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Cliff Hanger</div><p class="menu-item-desc">Spicy feta cream cheese & bacon.</p></div><span class="menu-price">$7.87</span></li>
+        </ul>
       </div>
-      <div class="menu-item">
-        <div class="menu-num">6</div>
-        <div class="menu-info">
-          <div class="menu-name">Bagel of the Day</div>
-          <p class="menu-desc">Whatever our baker woke up thinking about. Never the same twice. Always worth it. Ask at the counter.</p>
-          <span class="menu-tag">Daily Special</span>
-        </div>
+
+      <div class="menu-category">
+        <h3 class="menu-category-title">Breakfast Sandwiches</h3>
+        <ul class="menu-list">
+          <li class="menu-row"><div><div class="menu-item-name">Avgo</div><p class="menu-item-desc">2 egg sandwich.</p></div><span class="menu-price">$5.37</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Bacon Egg American Cheese</div></div><span class="menu-price">$9.37</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Sausage Egg American Cheese</div></div><span class="menu-price">$11.87</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Ham Egg American Cheese</div></div><span class="menu-price">$11.87</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Ham Jam</div></div><span class="menu-price">$10.57</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Gobble & Egg</div><p class="menu-item-desc">Turkey, egg, American cheese.</p></div><span class="menu-price">$10.40</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Wake n Bacon</div><p class="menu-item-desc">Bacon, egg, cheese, lettuce, tomato, mayo.</p></div><span class="menu-price">$12.47</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Lean n Green</div><p class="menu-item-desc">Egg whites, avocado, turkey bacon.</p></div><span class="menu-price">$11.16</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Feta Inferno</div><p class="menu-item-desc">Spicy feta cream cheese, 2 eggs, sausage.</p></div><span class="menu-price">$12.48</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Hash and Eggs</div><p class="menu-item-desc">Corned beef, pepper jack cheese, hashbrown & eggs.</p></div><span class="menu-price">$12.48</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Steak n Egg</div><p class="menu-item-desc">Roast beef, scallion garlic cream cheese, egg, sauteed onions.</p></div><span class="menu-price">$10.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Sofocles</div><p class="menu-item-desc">Sesame seed, fried feta, egg, lountza, tomato.</p></div><span class="menu-price">$9.00</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Themis BLT</div><p class="menu-item-desc">Bacon, lettuce, tomato, red onion, mayo, red wine vinaigrette.</p></div></li>
+          <li class="menu-row"><div><div class="menu-item-name">Seoul Sunrise</div><p class="menu-item-desc">Eggs, kimchi, smashed sausage.</p></div><span class="menu-price">$12.48</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-category">
+        <h3 class="menu-category-title">Signature Sandwiches & Salads</h3>
+        <ul class="menu-list">
+          <li class="menu-row"><div><div class="menu-item-name">Club</div><p class="menu-item-desc">Roasted turkey, bacon, chipotle aioli, lettuce, tomato.</p></div><span class="menu-price">$13.52</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Cypriot</div><p class="menu-item-desc">Haloumi, lountza, cucumber, tomato on grilled plain bagel.</p></div><span class="menu-price">$13.52</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Spinner Salad</div><p class="menu-item-desc">Kale, shaved brussels sprouts, figs, graviera cheese, candied walnuts, maple lime vinaigrette.</p></div><span class="menu-price">$10.40</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Greek Avo Bagel</div><p class="menu-item-desc">Avocado, feta, pico de Greeko.</p></div><span class="menu-price">$10.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Spyke</div><p class="menu-item-desc">Samaki pastrami smoked salmon, plain cream cheese, pickled onions, tomato.</p></div><span class="menu-price">$19.76</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">New York</div><p class="menu-item-desc">Samaki lox, cream cheese, onion, capers, tomato.</p></div><span class="menu-price">$15.41</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Blanquita</div><p class="menu-item-desc">Whitefish salad, pickled onions, capers.</p></div><span class="menu-price">$13.52</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Marigou</div><p class="menu-item-desc">Chicken salad, bacon, Swiss, pickles.</p></div><span class="menu-price">$14.60</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Dora</div><p class="menu-item-desc">Spinner salad with hummus.</p></div><span class="menu-price">$8.27</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Lily</div><p class="menu-item-desc">Corned beef, sauerkraut, Swiss cheese, pickles, spicy brown mustard.</p></div><span class="menu-price">$13.99</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Dino</div><p class="menu-item-desc">Beef tallow fried chicken, lettuce, tomato, spin sauce.</p></div><span class="menu-price">$14.52</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Demetrios</div><p class="menu-item-desc">Roast beef, bell peppers, sauteed onions, provolone cheese.</p></div><span class="menu-price">$14.56</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-category">
+        <h3 class="menu-category-title">Hot Beverages</h3>
+        <ul class="menu-list">
+          <li class="menu-row"><div><div class="menu-item-name">Spin Drip Coffee</div><p class="menu-item-desc">Micro / Megalo.</p></div><span class="menu-price">$2.34 / $3.38</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Espresso</div></div><span class="menu-price">$3.99</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Cappuccino</div></div><span class="menu-price">$5.20</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Latte</div></div><span class="menu-price">$5.20</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Americano</div></div><span class="menu-price">$5.20 / $6.24</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Hot Chocolate</div></div><span class="menu-price">$4.00 / $5.04</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Mocha</div></div><span class="menu-price">$5.74 / $6.78</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Chai Latte</div></div><span class="menu-price">$5.74 / $6.78</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Assorted Teas</div></div><span class="menu-price">$2.94 / $3.98</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-category">
+        <h3 class="menu-category-title">Cold Beverages</h3>
+        <ul class="menu-list">
+          <li class="menu-row"><div><div class="menu-item-name">Cold Brew</div></div><span class="menu-price">$4.74 / $5.78</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Iced Latte</div></div><span class="menu-price">$7.28</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Iced Chai</div></div><span class="menu-price">$7.28 / $8.32</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Iced Mocha</div></div><span class="menu-price">$7.28 / $8.32</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Pomegranate Green Iced Tea</div></div><span class="menu-price">$4.99</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Add Oat or Almond Milk</div></div><span class="menu-price">$1.04</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Specialty Syrup</div></div><span class="menu-price">$0.52</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Espresso Shot</div></div><span class="menu-price">$2.86</span></li>
+        </ul>
       </div>
     </div>
   </div>
