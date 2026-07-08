@@ -311,6 +311,35 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 .gallery-header { text-align: center; margin-bottom: 36px; }
 .gallery-header .sec-title { color: var(--linen); }
 .gallery-header .sec-num { color: var(--sage); }
+.gallery-controls {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin: -12px 0 30px;
+}
+.gallery-control {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(226,200,120,0.08);
+  border: 1.5px solid var(--gold);
+  color: var(--gold-soft);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.gallery-control:hover {
+  background: rgba(226,200,120,0.18);
+  color: var(--linen);
+  transform: translateY(-2px);
+}
+.gallery-control:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 3px;
+}
 
 .gallery-track-wrap { overflow: hidden; width: 100%; cursor: ew-resize; padding: 14px 0; }
 .gallery-track {
@@ -1005,6 +1034,10 @@ footer {
       <span class="sec-num">3 — The Food</span>
       <h2 class="sec-title">Built to be <span class="a">Eaten</span></h2>
     </div>
+    <div class="gallery-controls" aria-label="Browse food catalogue">
+      <button class="gallery-control" type="button" id="gallery-prev" aria-label="Previous catalogue image">&#8592;</button>
+      <button class="gallery-control" type="button" id="gallery-next" aria-label="Next catalogue image">&#8594;</button>
+    </div>
     <div class="gallery-track-wrap">
       <div class="gallery-track" id="gallery-track">
         <div class="gallery-card"><img src="pics/feta-inferno.jpg" alt="Spin Bagel Feta Inferno sandwich"></div>
@@ -1375,11 +1408,15 @@ window.addEventListener('load', () => {
 (function () {
   const wrap  = document.querySelector('.gallery-track-wrap');
   const track = document.getElementById('gallery-track');
+  const prevBtn = document.getElementById('gallery-prev');
+  const nextBtn = document.getElementById('gallery-next');
 
-  function computeHalf() {
+  function cardDistance() {
     const card = track.querySelector('.gallery-card');
-    const cardW = card ? (card.offsetWidth + 20) : 440;
-    return 8 * cardW;
+    return card ? (card.offsetWidth + 20) : 440;
+  }
+  function computeHalf() {
+    return 8 * cardDistance();
   }
   let HALF = computeHalf();
   window.addEventListener('resize', () => { HALF = computeHalf(); }, { passive: true });
@@ -1396,6 +1433,14 @@ window.addEventListener('load', () => {
     e.preventDefault();
     targetX += e.deltaY * 0.9;
   }, { passive: false });
+
+  prevBtn?.addEventListener('click', () => {
+    targetX -= cardDistance();
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    targetX += cardDistance();
+  });
 
   // Touch drag support
   let touchStartX = 0;
