@@ -416,12 +416,38 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 /* ── MENU ── */
 .menu-section { background: var(--parchment); padding: 120px 56px; }
 .menu-inner { max-width: 1120px; margin: 0 auto; }
-.menu-header { margin-bottom: 64px; }
+.menu-header { margin-bottom: 28px; }
 .menu-header .sec-title { color: var(--ink); }
 
+.menu-jump-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 44px;
+}
+.menu-jump-link {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--forest);
+  text-decoration: none;
+  padding: 10px 14px;
+  border: 1px solid rgba(45,106,42,0.24);
+  background: rgba(245,239,224,0.58);
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+}
+.menu-jump-link:hover {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--linen);
+  transform: translateY(-2px);
+}
 .menu-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px;
-  background: rgba(26,20,16,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
 }
 .menu-item {
   background: var(--wheat);
@@ -454,32 +480,39 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 }
 .menu-category {
   background: var(--wheat);
-  padding: 36px 38px;
+  padding: 34px 38px 38px;
+  border: 1px solid rgba(178,130,39,0.26);
+  border-left: 5px solid var(--forest);
+  box-shadow: 0 18px 42px rgba(26,20,16,0.08);
+  scroll-margin-top: 118px;
 }
 .menu-category-title {
   font-family: 'Cinzel'; font-weight: 700;
-  font-size: 1rem; letter-spacing: 0.08em;
+  font-size: clamp(1.15rem, 2vw, 1.55rem); letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--ink);
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(26,20,16,0.16);
 }
 .menu-list {
   list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 42px;
+  row-gap: 0;
 }
 .menu-row {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 16px;
   align-items: start;
-  padding-bottom: 14px;
+  padding: 16px 0;
   border-bottom: 1px solid rgba(26,20,16,0.12);
 }
-.menu-row:last-child { border-bottom: none; padding-bottom: 0; }
+.menu-row:last-child { border-bottom: none; }
 .menu-item-name {
   font-family: 'Cinzel'; font-weight: 700;
-  font-size: 0.82rem; letter-spacing: 0.06em;
+  font-size: 0.86rem; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--ink);
 }
 .menu-item-desc {
@@ -918,7 +951,18 @@ footer {
   .story-inner { grid-template-columns: 1fr; gap: 48px; }
   .values-grid { grid-template-columns: 1fr; }
   .gallery-card { width: 280px; height: 280px; }
-  .menu-grid { grid-template-columns: 1fr; }
+  .menu-header { margin-bottom: 24px; }
+  .menu-jump-list { gap: 8px; margin-bottom: 32px; }
+  .menu-jump-link { font-size: 0.62rem; letter-spacing: 0.18em; padding: 9px 11px; }
+  .menu-grid { gap: 22px; }
+  .menu-category { padding: 26px 22px 28px; scroll-margin-top: 92px; }
+  .menu-category-title { font-size: 1.05rem; margin-bottom: 14px; padding-bottom: 12px; }
+  .menu-list { grid-template-columns: 1fr; }
+  .menu-row { gap: 12px; padding: 14px 0; }
+  .menu-row:last-child { border-bottom: none; }
+  .menu-item-name { font-size: 0.78rem; letter-spacing: 0.035em; }
+  .menu-item-desc { font-size: 0.8rem; line-height: 1.5; }
+  .menu-price { font-size: 0.96rem; letter-spacing: 0.04em; }
   .craft-grid { grid-template-columns: 1fr; }
   #spin-indicator { display: none; }
   .subscribe-form { flex-direction: column; }
@@ -1112,8 +1156,19 @@ footer {
       <span class="sec-num">4 — What We Make</span>
       <h2 class="sec-title"><span class="a">Menu</span></h2>
     </div>
+    <div class="menu-jump-list" role="navigation" aria-label="Menu categories">
+      <a class="menu-jump-link" href="#menu-bagels">Bagels</a>
+      <a class="menu-jump-link" href="#menu-greek">Greek</a>
+      <a class="menu-jump-link" href="#menu-butters">Butters</a>
+      <a class="menu-jump-link" href="#menu-schmears">Schmears</a>
+      <a class="menu-jump-link" href="#menu-spinmates">Spinmates</a>
+      <a class="menu-jump-link" href="#menu-breakfast">Breakfast</a>
+      <a class="menu-jump-link" href="#menu-signatures">Sandwiches</a>
+      <a class="menu-jump-link" href="#menu-hot">Hot Drinks</a>
+      <a class="menu-jump-link" href="#menu-cold">Cold Drinks</a>
+    </div>
     <div class="menu-grid" data-stagger>
-      <div class="menu-category">
+      <div class="menu-category" id="menu-bagels">
         <h3 class="menu-category-title">Sourdough Spin Bagels</h3>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Regular Bagel</div><p class="menu-item-desc">Plain, sesame, poppy, everything, onion, garlic, or salt.</p></div><span class="menu-price">$2.08</span></li>
@@ -1122,7 +1177,7 @@ footer {
         </ul>
       </div>
 
-      <div class="menu-category">
+      <div class="menu-category" id="menu-greek">
         <h3 class="menu-category-title">Greek Spreads & Pies</h3>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Kopanisti</div><p class="menu-item-desc">Greek spread, available by the 1/2 lb or on a bagel.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
@@ -1132,7 +1187,7 @@ footer {
         </ul>
       </div>
 
-      <div class="menu-category">
+      <div class="menu-category" id="menu-butters">
         <h3 class="menu-category-title">Spin Butters & Jellies</h3>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Salted Butter</div><p class="menu-item-desc">Available by the 1/2 lb or on a bagel.</p></div><span class="menu-price">$6.50 / $3.64</span></li>
@@ -1142,7 +1197,7 @@ footer {
         </ul>
       </div>
 
-      <div class="menu-category">
+      <div class="menu-category" id="menu-schmears">
         <h3 class="menu-category-title">Flavored Schmears</h3>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Plain</div><p class="menu-item-desc">1/2 lb.</p></div><span class="menu-price">$6.23</span></li>
@@ -1162,7 +1217,7 @@ footer {
         </ul>
       </div>
 
-      <div class="menu-category">
+      <div class="menu-category" id="menu-spinmates">
         <h3 class="menu-category-title">Bagel Spinmates</h3>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Pooh Bear</div><p class="menu-item-desc">Cinnacrunch with honey butter.</p></div><span class="menu-price">$5.15</span></li>
@@ -1174,7 +1229,7 @@ footer {
         </ul>
       </div>
 
-      <div class="menu-category">
+      <div class="menu-category" id="menu-breakfast">
         <h3 class="menu-category-title">Breakfast Sandwiches</h3>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Avgo</div><p class="menu-item-desc">2 egg sandwich.</p></div><span class="menu-price">$5.37</span></li>
@@ -1194,7 +1249,7 @@ footer {
         </ul>
       </div>
 
-      <div class="menu-category">
+      <div class="menu-category" id="menu-signatures">
         <h3 class="menu-category-title">Signature Sandwiches & Salads</h3>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Club</div><p class="menu-item-desc">Roasted turkey, bacon, chipotle aioli, lettuce, tomato.</p></div><span class="menu-price">$13.52</span></li>
@@ -1212,7 +1267,7 @@ footer {
         </ul>
       </div>
 
-      <div class="menu-category">
+      <div class="menu-category" id="menu-hot">
         <h3 class="menu-category-title">Hot Beverages</h3>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Spin Drip Coffee</div><p class="menu-item-desc">Micro / Megalo.</p></div><span class="menu-price">$2.34 / $3.38</span></li>
@@ -1227,7 +1282,7 @@ footer {
         </ul>
       </div>
 
-      <div class="menu-category">
+      <div class="menu-category" id="menu-cold">
         <h3 class="menu-category-title">Cold Beverages</h3>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Cold Brew</div></div><span class="menu-price">$4.74 / $5.78</span></li>
