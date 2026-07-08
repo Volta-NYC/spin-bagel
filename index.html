@@ -1601,21 +1601,32 @@ window.addEventListener('load', () => {
   let currentX = 0;
   let targetX  = 0;
   let hovered  = false;
+  let passivePausedUntil = 0;
+  const passiveSpeed = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 0.38;
 
-  wrap.addEventListener('mouseenter', () => { hovered = true; });
+  function pausePassive(ms = 1400) {
+    passivePausedUntil = Date.now() + ms;
+    targetX = currentX;
+  }
+
+  wrap.addEventListener('mouseenter', () => { hovered = true; pausePassive(); });
   wrap.addEventListener('mouseleave', () => { hovered = false; });
+  wrap.addEventListener('focusin', () => { pausePassive(2200); });
 
   wrap.addEventListener('wheel', (e) => {
     if (!hovered) return;
     e.preventDefault();
+    pausePassive();
     targetX += e.deltaY * 0.9;
   }, { passive: false });
 
   prevBtn?.addEventListener('click', () => {
+    pausePassive(2200);
     targetX -= cardDistance();
   });
 
   nextBtn?.addEventListener('click', () => {
+    pausePassive(2200);
     targetX += cardDistance();
   });
 
@@ -1628,18 +1639,24 @@ window.addEventListener('load', () => {
     touchStartX = e.touches[0].clientX;
     touchLastX  = touchStartX;
     isTouching  = true;
+    pausePassive();
   }, { passive: true });
 
   wrap.addEventListener('touchmove', (e) => {
     if (!isTouching) return;
     const x = e.touches[0].clientX;
+    pausePassive();
     targetX -= (x - touchLastX) * 1.2;
     touchLastX = x;
   }, { passive: true });
 
-  wrap.addEventListener('touchend', () => { isTouching = false; }, { passive: true });
+  wrap.addEventListener('touchend', () => { isTouching = false; pausePassive(); }, { passive: true });
 
   (function raf() {
+    if (passiveSpeed && !hovered && !isTouching && Date.now() > passivePausedUntil) {
+      targetX += passiveSpeed;
+    }
+
     currentX += (targetX - currentX) * 0.09;
 
     // seamless loop
