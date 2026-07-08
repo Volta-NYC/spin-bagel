@@ -904,7 +904,7 @@ footer {
   <div class="story-inner">
     <div class="story-visual" data-reveal="left">
       <div class="story-tag">Made Fresh Daily</div>
-      <img src="pics/1.webp" alt="Spin Bagel signature sandwich" class="story-photo" id="story-photo">
+      <img src="pics/salt-bagel.jpg" alt="Spin Bagel salt bagel held fresh at the counter" class="story-photo" id="story-photo">
     </div>
     <div class="story-text" data-reveal="right">
       <span class="sec-num">01 — Who We Are</span>
@@ -963,19 +963,23 @@ footer {
     </div>
     <div class="gallery-track-wrap">
       <div class="gallery-track" id="gallery-track">
-        <div class="gallery-card"><img src="pics/2.webp" alt="Bagel with salmon and cream cheese"></div>
-        <div class="gallery-card"><img src="pics/3.webp" alt="Full breakfast spread"></div>
-        <div class="gallery-card"><img src="pics/4.webp" alt="Loaded bagel sandwich"></div>
-        <div class="gallery-card"><img src="pics/5.webp" alt="Bagels with toppings"></div>
-        <div class="gallery-card"><img src="pics/6.webp" alt="Mediterranean spread"></div>
-        <div class="gallery-card"><img src="pics/7.webp" alt="Bacon egg and cheese bagel"></div>
+        <div class="gallery-card"><img src="pics/feta-inferno.jpg" alt="Spin Bagel Feta Inferno sandwich"></div>
+        <div class="gallery-card"><img src="pics/feta-inferno-1.jpg" alt="Feta Inferno bagel sandwich close-up"></div>
+        <div class="gallery-card"><img src="pics/lean-n-green.jpg" alt="Lean n Green Spin Bagel sandwich"></div>
+        <div class="gallery-card"><img src="pics/rosemary.jpg" alt="Rosemary bagel sandwich"></div>
+        <div class="gallery-card"><img src="pics/steak-and-egg.jpg" alt="Steak and egg bagel sandwich"></div>
+        <div class="gallery-card"><img src="pics/themis-blt.jpg" alt="Themis BLT bagel sandwich"></div>
+        <div class="gallery-card"><img src="pics/themis-blt-1.jpg" alt="Themis BLT bagel sandwich close-up"></div>
+        <div class="gallery-card"><img src="pics/salt-bagel.jpg" alt="Fresh salt bagel"></div>
         <!-- duplicates for seamless loop -->
-        <div class="gallery-card" aria-hidden="true"><img src="pics/2.webp" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/3.webp" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/4.webp" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/5.webp" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/6.webp" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/7.webp" alt=""></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/feta-inferno.jpg" alt=""></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/feta-inferno-1.jpg" alt=""></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/lean-n-green.jpg" alt=""></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/rosemary.jpg" alt=""></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/steak-and-egg.jpg" alt=""></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/themis-blt.jpg" alt=""></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/themis-blt-1.jpg" alt=""></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/salt-bagel.jpg" alt=""></div>
       </div>
     </div>
   </div>
@@ -1331,7 +1335,7 @@ window.addEventListener('load', () => {
   function computeHalf() {
     const card = track.querySelector('.gallery-card');
     const cardW = card ? (card.offsetWidth + 20) : 440;
-    return 6 * cardW;
+    return 8 * cardW;
   }
   let HALF = computeHalf();
   window.addEventListener('resize', () => { HALF = computeHalf(); }, { passive: true });
@@ -1388,7 +1392,7 @@ window.addEventListener('load', () => {
   const lb      = document.getElementById('lightbox');
   const lbImg   = document.getElementById('lightbox-img');
   const lbCount = document.getElementById('lb-counter');
-  const cards   = Array.from(document.querySelectorAll('.gallery-card img'));
+  const cards   = Array.from(document.querySelectorAll('.gallery-card:not([aria-hidden="true"]) img'));
   let current   = 0;
 
   function open(index) {
