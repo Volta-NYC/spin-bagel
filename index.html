@@ -254,6 +254,10 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   object-fit: cover; display: block;
   border: 1px solid rgba(242,234,214,0.55);
 }
+.story-photo-frame {
+  position: relative;
+  overflow: hidden;
+}
 .story-tag {
   position: absolute; top: -12px; left: 32px; z-index: 4;
   background: var(--forest); color: var(--linen);
@@ -942,7 +946,9 @@ footer {
   <div class="story-inner">
     <div class="story-visual" data-reveal="left">
       <div class="story-tag">Made Fresh Daily</div>
-      <img src="pics/steak-and-egg.jpg" alt="Spin Bagel steak and egg bagel sandwich" class="story-photo" id="story-photo">
+      <div class="story-photo-frame">
+        <img src="pics/steak-and-egg.jpg" alt="Spin Bagel steak and egg bagel sandwich" class="story-photo" id="story-photo">
+      </div>
     </div>
     <div class="story-text" data-reveal="right">
       <span class="sec-num">1 — Who We Are</span>
