@@ -17,6 +17,8 @@
   --ink:       #1A1410;
   --dark:      #2C2418;
   --bronze:    #8A6830;
+  --gold:      #C8A14A;
+  --gold-soft: #E2C878;
   --clay:      #7A4E2A;
   --stone:     #7A6E5C;
   --maze:      #3A2E1E;
@@ -219,14 +221,41 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 }
 .story-visual {
   position: relative;
+  padding: 12px;
+  border: 2px solid var(--gold);
+  background: linear-gradient(135deg, rgba(226,200,120,0.28), rgba(138,104,48,0.12));
+  box-shadow: 0 18px 42px rgba(26,20,16,0.22), inset 0 0 0 1px rgba(242,234,214,0.42);
+}
+.story-visual::before,
+.story-visual::after,
+.gallery-card::before,
+.gallery-card::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+}
+.story-visual::before,
+.gallery-card::before {
+  inset: 7px;
+  border: 1px solid rgba(226,200,120,0.78);
+}
+.story-visual::after,
+.gallery-card::after {
+  inset: -9px;
+  background:
+    linear-gradient(45deg, transparent 0 44%, var(--gold-soft) 44% 56%, transparent 56%) top left / 28px 28px no-repeat,
+    linear-gradient(-45deg, transparent 0 44%, var(--gold-soft) 44% 56%, transparent 56%) top right / 28px 28px no-repeat,
+    linear-gradient(-45deg, transparent 0 44%, var(--gold-soft) 44% 56%, transparent 56%) bottom left / 28px 28px no-repeat,
+    linear-gradient(45deg, transparent 0 44%, var(--gold-soft) 44% 56%, transparent 56%) bottom right / 28px 28px no-repeat;
 }
 .story-photo {
   width: 100%; aspect-ratio: 4/3;
   object-fit: cover; display: block;
-  border: 1px solid var(--wheat);
+  border: 1px solid rgba(242,234,214,0.55);
 }
 .story-tag {
-  position: absolute; top: -12px; left: 32px;
+  position: absolute; top: -12px; left: 32px; z-index: 4;
   background: var(--forest); color: var(--linen);
   font-family: 'Barlow Condensed'; font-weight: 700;
   font-size: 0.55rem; letter-spacing: 0.4em; text-transform: uppercase;
@@ -279,7 +308,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 .gallery-header .sec-title { color: var(--linen); }
 .gallery-header .sec-num { color: var(--sage); }
 
-.gallery-track-wrap { overflow: hidden; width: 100%; cursor: ew-resize; }
+.gallery-track-wrap { overflow: hidden; width: 100%; cursor: ew-resize; padding: 14px 0; }
 .gallery-track {
   display: flex;
   will-change: transform;
@@ -288,13 +317,22 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   flex-shrink: 0;
   width: 420px; height: 420px;
   margin-right: 20px;
-  border-radius: 4px; overflow: hidden;
+  padding: 10px;
+  border: 2px solid var(--gold);
+  border-radius: 4px;
+  overflow: visible;
   position: relative;
+  background: linear-gradient(135deg, rgba(226,200,120,0.24), rgba(138,104,48,0.18));
+  box-shadow: 0 18px 38px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(242,234,214,0.24);
 }
 .gallery-card img {
   width: 100%; height: 100%;
   object-fit: cover; display: block;
+  border: 1px solid rgba(242,234,214,0.35);
+  border-radius: 2px;
   transition: transform 0.5s ease;
+  position: relative;
+  z-index: 1;
 }
 .gallery-card { cursor: zoom-in; }
 .gallery-card:hover img { transform: scale(1.04); }
@@ -790,7 +828,7 @@ footer {
 }
 
 /* ── PARALLAX STORY IMG ── */
-.story-visual { overflow: hidden; }
+.story-visual { overflow: visible; }
 .story-photo  { transform-origin: center; transition: transform 0.1s linear; }
 
 @media (max-width: 768px) {
@@ -907,7 +945,7 @@ footer {
       <img src="pics/steak-and-egg.jpg" alt="Spin Bagel steak and egg bagel sandwich" class="story-photo" id="story-photo">
     </div>
     <div class="story-text" data-reveal="right">
-      <span class="sec-num">01 — Who We Are</span>
+      <span class="sec-num">1 — Who We Are</span>
       <h2 class="sec-title">Bagels, <span class="a">Reimagined</span></h2>
       <div class="divider"><div class="divider-line"></div><div class="divider-diamond"></div><div class="divider-line"></div></div>
       <p class="sec-body">At Spin Bagel, we bring together the expertise of a registered dietitian/nutritionist and a proud NYC Union Ironworker who brings with him the skills from a long family history of NYC deli/cafe owners.</p>
@@ -921,23 +959,23 @@ footer {
 <section class="craft-section" id="craft">
   <div class="craft-inner">
     <div class="craft-header" data-reveal="up">
-      <span class="sec-num">02 — What Sets Us Apart</span>
+      <span class="sec-num">2 — What Sets Us Apart</span>
       <h2 class="sec-title">A Better <span class="a">Bagel</span></h2>
       <p class="craft-lead">We put a spin on New York style bagels with slow-fermented sourdough and <span class="craft-flour">high quality unbleached and unbromated flour</span>, creating a gut friendly version of a New York staple.</p>
     </div>
     <div class="craft-grid" data-stagger>
       <div class="craft-card">
-        <span class="craft-step">01</span>
+        <span class="craft-step">1</span>
         <h3 class="craft-name">No Seed Oils</h3>
         <p class="craft-body">We prioritize clean ingredients by avoiding seed oils in our cooking, including canola, vegetable, soy, and corn oil.</p>
       </div>
       <div class="craft-card">
-        <span class="craft-step">02</span>
+        <span class="craft-step">2</span>
         <h3 class="craft-name">Locally Sourced Ingredients</h3>
         <p class="craft-body">We partner with local farms and family-owned businesses to bring you fresh, high-quality ingredients that share our mission.</p>
       </div>
       <div class="craft-card">
-        <span class="craft-step">03</span>
+        <span class="craft-step">3</span>
         <h3 class="craft-name">Uncured Meats</h3>
         <p class="craft-body">Our bacon, sausage, ham, turkey, roast beef, and other meats are prepared without artificial flavors, preservatives, or added nitrates/nitrites.</p>
       </div>
@@ -958,7 +996,7 @@ footer {
 <section class="gallery-section" id="values">
   <div class="gallery-sticky">
     <div class="gallery-header" data-reveal="up">
-      <span class="sec-num">03 — The Food</span>
+      <span class="sec-num">3 — The Food</span>
       <h2 class="sec-title">Built to be <span class="a">Eaten</span></h2>
     </div>
     <div class="gallery-track-wrap">
@@ -989,12 +1027,12 @@ footer {
 <section class="menu-section" id="menu">
   <div class="menu-inner">
     <div class="menu-header" data-reveal="up">
-      <span class="sec-num">04 — What We Make</span>
+      <span class="sec-num">4 — What We Make</span>
       <h2 class="sec-title"><span class="a">Menu</span></h2>
     </div>
     <div class="menu-grid" data-stagger>
       <div class="menu-item">
-        <div class="menu-num">01</div>
+        <div class="menu-num">1</div>
         <div class="menu-info">
           <div class="menu-name">The Classic Spin</div>
           <p class="menu-desc">Sesame, everything, or plain — our flagship bagel with 36-hour cold-fermented dough and a crackle you'll hear across the room.</p>
@@ -1002,7 +1040,7 @@ footer {
         </div>
       </div>
       <div class="menu-item">
-        <div class="menu-num">02</div>
+        <div class="menu-num">2</div>
         <div class="menu-info">
           <div class="menu-name">Smoked Heritage</div>
           <p class="menu-desc">Wild-caught salmon, house-whipped cream cheese, capers, shaved red onion. An ode to what a proper bagel can be.</p>
@@ -1010,7 +1048,7 @@ footer {
         </div>
       </div>
       <div class="menu-item">
-        <div class="menu-num">03</div>
+        <div class="menu-num">3</div>
         <div class="menu-info">
           <div class="menu-name">The Labyrinth Spread</div>
           <p class="menu-desc">Our signature scallion cream cheese with roasted garlic, finished with cold-pressed olive oil. A maze of flavor.</p>
@@ -1018,7 +1056,7 @@ footer {
         </div>
       </div>
       <div class="menu-item">
-        <div class="menu-num">04</div>
+        <div class="menu-num">4</div>
         <div class="menu-info">
           <div class="menu-name">Ancient Grain</div>
           <p class="menu-desc">Einkorn and spelt blend, slow-fermented 48 hours. For those who know that older is often better.</p>
@@ -1026,7 +1064,7 @@ footer {
         </div>
       </div>
       <div class="menu-item">
-        <div class="menu-num">05</div>
+        <div class="menu-num">5</div>
         <div class="menu-info">
           <div class="menu-name">The Forest</div>
           <p class="menu-desc">Herb cream cheese with wild garlic, fresh dill, and charred leek. Like a walk through the woods, compressed into a bite.</p>
@@ -1034,7 +1072,7 @@ footer {
         </div>
       </div>
       <div class="menu-item">
-        <div class="menu-num">06</div>
+        <div class="menu-num">6</div>
         <div class="menu-info">
           <div class="menu-name">Bagel of the Day</div>
           <p class="menu-desc">Whatever our baker woke up thinking about. Never the same twice. Always worth it. Ask at the counter.</p>
@@ -1055,7 +1093,7 @@ footer {
 
     <!-- LEFT: Form -->
     <div class="contact-form-col" data-reveal="left">
-      <span class="contact-col-label">05 — Get in Touch</span>
+      <span class="contact-col-label">5 — Get in Touch</span>
       <h2 class="contact-col-title">Drop Us a Line!</h2>
       <form class="contact-form" onsubmit="return false;">
         <div class="form-field">
