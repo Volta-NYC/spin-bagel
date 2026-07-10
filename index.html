@@ -528,6 +528,9 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   font-size: 0.82rem; line-height: 1.6;
   color: var(--stone); font-style: italic;
 }
+.menu-category > .menu-note {
+  margin: -6px 0 20px;
+}
 
 /* ── CRAFT ── */
 .craft-section {
@@ -963,6 +966,7 @@ footer {
   .menu-item-name { font-size: 0.78rem; letter-spacing: 0.035em; }
   .menu-item-desc { font-size: 0.8rem; line-height: 1.5; }
   .menu-price { font-size: 0.96rem; letter-spacing: 0.04em; }
+  .menu-category > .menu-note { margin: -2px 0 14px; }
   .craft-grid { grid-template-columns: 1fr; }
   #spin-indicator { display: none; }
   .subscribe-form { flex-direction: column; }
@@ -1028,7 +1032,7 @@ footer {
   <div class="hero-bg-grain"></div>
   <img id="hero-img" src="bagel.png" alt="Spin Bagel">
   <div class="hero-content">
-    <span class="hero-eyebrow">Handcrafted · Brooklyn · Est. 2024</span>
+    <span class="hero-eyebrow">Handcrafted · Bayside · Est. 2025</span>
     <h1 class="hero-headline">We Put a <span class="spin">Spin</span><br>on Everything.</h1>
     <p class="hero-sub">All-natural sourdough bagels and Mediterranean-inspired wholesome meals — crafted by a dietitian and a New Yorker, for people on the go.</p>
     <div class="hero-actions">
@@ -1161,6 +1165,7 @@ footer {
       <a class="menu-jump-link" href="#menu-greek">Greek</a>
       <a class="menu-jump-link" href="#menu-butters">Butters</a>
       <a class="menu-jump-link" href="#menu-schmears">Schmears</a>
+      <a class="menu-jump-link" href="#menu-seasonal-schmears">Seasonal</a>
       <a class="menu-jump-link" href="#menu-spinmates">Spinmates</a>
       <a class="menu-jump-link" href="#menu-breakfast">Breakfast</a>
       <a class="menu-jump-link" href="#menu-signatures">Sandwiches</a>
@@ -1172,7 +1177,7 @@ footer {
         <h3 class="menu-category-title">Sourdough Spin Bagels</h3>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Regular Bagel</div><p class="menu-item-desc">Plain, sesame, poppy, everything, onion, garlic, or salt.</p></div><span class="menu-price">$2.08</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Specialty Bagel Spin</div><p class="menu-item-desc">Onion focaccia, zaatar, rosemary & olive oil, cheddar jalapeno, or cinnacrunch.</p></div><span class="menu-price">$3.12</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Specialty Bagel Spin</div><p class="menu-item-desc">Onion focaccia, zaatar, rosemary & olive oil, cheddar jalapeno, asiago, or cinnacrunch.</p></div><span class="menu-price">$3.12</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Baker's Dozen</div><p class="menu-item-desc">13 regular bagels. Specialty bagels add $1.04 each.</p></div><span class="menu-price">$24.69</span></li>
         </ul>
       </div>
@@ -1201,10 +1206,10 @@ footer {
         <h3 class="menu-category-title">Flavored Schmears</h3>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Plain</div><p class="menu-item-desc">1/2 lb.</p></div><span class="menu-price">$6.23</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Coffee Toffee</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Dulce de Leche</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Coffee Toffee Dulce de Leche</div></div><span class="menu-price">$6.99 / $5.01</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Fig</div></div><span class="menu-price">$6.99 / $5.01</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Strawberry</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Blueberry</div></div><span class="menu-price">$6.99 / $5.01</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Coco Cinna Raisin</div></div><span class="menu-price">$6.99 / $5.01</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Vegan</div></div><span class="menu-price">$6.99 / $5.01</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Lox Spread</div></div><span class="menu-price">$6.99 / $5.01</span></li>
@@ -1214,6 +1219,16 @@ footer {
           <li class="menu-row"><div><div class="menu-item-name">Bacon Jalapeno</div></div><span class="menu-price">$6.99 / $5.01</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Vegetable</div></div><span class="menu-price">$6.99 / $5.01</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Sriracha Chive</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+        </ul>
+      </div>
+
+      <div class="menu-category" id="menu-seasonal-schmears">
+        <h3 class="menu-category-title">Seasonal Schmears</h3>
+        <ul class="menu-list">
+          <li class="menu-row"><div><div class="menu-item-name">Summer</div><p class="menu-item-desc">Guava or passion fruit.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Spring</div><p class="menu-item-desc">Sun dried tomato.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Fall</div><p class="menu-item-desc">Apple cinnamon pecan or pumpkin spice.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Winter</div><p class="menu-item-desc">Everything dill pickle.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
         </ul>
       </div>
 
@@ -1231,11 +1246,13 @@ footer {
 
       <div class="menu-category" id="menu-breakfast">
         <h3 class="menu-category-title">Breakfast Sandwiches</h3>
+        <p class="menu-note">Your choice of bagel, roll, or spinach, flour, or whole wheat wrap. Wraps add $2.08.</p>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Avgo</div><p class="menu-item-desc">2 egg sandwich.</p></div><span class="menu-price">$5.37</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Bacon Egg American Cheese</div></div><span class="menu-price">$9.37</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Sausage Egg American Cheese</div></div><span class="menu-price">$11.87</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Ham Egg American Cheese</div></div><span class="menu-price">$11.87</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Organic Turkey Bacon Egg American Cheese</div></div><span class="menu-price">TBD</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Ham Jam</div></div><span class="menu-price">$10.57</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Gobble & Egg</div><p class="menu-item-desc">Turkey, egg, American cheese.</p></div><span class="menu-price">$10.40</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Wake n Bacon</div><p class="menu-item-desc">Bacon, egg, cheese, lettuce, tomato, mayo.</p></div><span class="menu-price">$12.47</span></li>
@@ -1278,7 +1295,7 @@ footer {
           <li class="menu-row"><div><div class="menu-item-name">Hot Chocolate</div></div><span class="menu-price">$4.00 / $5.04</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Mocha</div></div><span class="menu-price">$5.74 / $6.78</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Chai Latte</div></div><span class="menu-price">$5.74 / $6.78</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Assorted Teas</div></div><span class="menu-price">$2.94 / $3.98</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Organic Assorted Teas</div></div><span class="menu-price">$2.94 / $3.98</span></li>
         </ul>
       </div>
 
@@ -1289,6 +1306,9 @@ footer {
           <li class="menu-row"><div><div class="menu-item-name">Iced Latte</div></div><span class="menu-price">$7.28</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Iced Chai</div></div><span class="menu-price">$7.28 / $8.32</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Iced Mocha</div></div><span class="menu-price">$7.28 / $8.32</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Freddo Cappuccino</div></div></li>
+          <li class="menu-row"><div><div class="menu-item-name">Freddo Espresso</div></div></li>
+          <li class="menu-row"><div><div class="menu-item-name">Frappe</div></div></li>
           <li class="menu-row"><div><div class="menu-item-name">Pomegranate Green Iced Tea</div></div><span class="menu-price">$4.99</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Add Oat or Almond Milk</div></div><span class="menu-price">$1.04</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Specialty Syrup</div></div><span class="menu-price">$0.52</span></li>
@@ -1358,13 +1378,8 @@ footer {
 
       <span class="hours-title">Hours</span>
       <table class="hours-table">
-        <tr><td>Mon</td><td>07:00 am – 03:00 pm</td></tr>
-        <tr><td>Tue</td><td>07:00 am – 03:00 pm</td></tr>
-        <tr><td>Wed</td><td>07:00 am – 03:00 pm</td></tr>
-        <tr><td>Thu</td><td>07:00 am – 03:00 pm</td></tr>
-        <tr><td>Fri</td><td>07:00 am – 03:00 pm</td></tr>
-        <tr><td>Sat</td><td>07:00 am – 03:00 pm</td></tr>
-        <tr><td>Sun</td><td>07:00 am – 03:00 pm</td></tr>
+        <tr><td>Mon - Fri</td><td>06:00 am – 03:00 pm</td></tr>
+        <tr><td>Sat - Sun</td><td>07:00 am – 03:00 pm</td></tr>
       </table>
       <p class="hours-closed">Closed Thanksgiving, Christmas Day, New Years Day, Easter</p>
     </div>
