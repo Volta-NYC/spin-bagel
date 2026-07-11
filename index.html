@@ -524,6 +524,23 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   font-size: 1.05rem; letter-spacing: 0.06em;
   color: var(--forest); white-space: nowrap;
 }
+.menu-price-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: right;
+  line-height: 1.05;
+}
+.menu-price-pair span {
+  white-space: nowrap;
+}
+.menu-price-pair b {
+  color: var(--stone);
+  font-size: 0.72em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-right: 4px;
+}
 .menu-note {
   font-size: 0.82rem; line-height: 1.6;
   color: var(--stone); font-style: italic;
@@ -966,6 +983,8 @@ footer {
   .menu-item-name { font-size: 0.78rem; letter-spacing: 0.035em; }
   .menu-item-desc { font-size: 0.8rem; line-height: 1.5; }
   .menu-price { font-size: 0.96rem; letter-spacing: 0.04em; }
+  .menu-price-pair { gap: 3px; }
+  .menu-price-pair b { font-size: 0.68em; }
   .menu-category > .menu-note { margin: -2px 0 14px; }
   .craft-grid { grid-template-columns: 1fr; }
   #spin-indicator { display: none; }
@@ -1185,8 +1204,8 @@ footer {
       <div class="menu-category" id="menu-greek">
         <h3 class="menu-category-title">Greek Spreads & Pies</h3>
         <ul class="menu-list">
-          <li class="menu-row"><div><div class="menu-item-name">Kopanisti</div><p class="menu-item-desc">Greek spread, available by the 1/2 lb or on a bagel.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Hummus</div><p class="menu-item-desc">Greek spread, available by the 1/2 lb or on a bagel.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Kopanisti</div><p class="menu-item-desc">Greek spread, available by the 1/2 lb or on a bagel.</p></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Hummus</div><p class="menu-item-desc">Greek spread, available by the 1/2 lb or on a bagel.</p></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
           <li class="menu-row"><div><div class="menu-item-name">Greek Pies</div><p class="menu-item-desc">Olive & feta, kasseri grecpanada, tiropita, or bougatsa.</p></div><span class="menu-price">$5.72</span></li>
           <li class="menu-row"><div><div class="menu-item-name">Yvonne's Spanakopita</div></div><span class="menu-price">$7.54</span></li>
         </ul>
@@ -1204,33 +1223,33 @@ footer {
 
       <div class="menu-category" id="menu-schmears">
         <h3 class="menu-category-title">Flavored Schmears</h3>
-        <p class="menu-note">Prices shown as 1/2 lb / on a bagel.</p>
+        <p class="menu-note">Rows with two prices show the 1/2 lb container price first, then the on-a-bagel price.</p>
         <ul class="menu-list">
           <li class="menu-row"><div><div class="menu-item-name">Plain</div><p class="menu-item-desc">1/2 lb.</p></div><span class="menu-price">$6.23</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Coffee Toffee Dulce de Leche</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Fig</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Strawberry</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Blueberry</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Coco Cinna Raisin</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Vegan</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Lox Spread</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Kalamata Olive</div></div><span class="menu-price">$8.49 / $7.64</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Spicy Feta</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Scallion & Garlic</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Bacon Jalapeno</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Vegetable</div></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Sriracha Chive</div></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Coffee Toffee Dulce de Leche</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Fig</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Strawberry</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Blueberry</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Coco Cinna Raisin</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Vegan</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Lox Spread</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Kalamata Olive</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $8.49</span><span><b>Bagel:</b> $7.64</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Spicy Feta</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Scallion & Garlic</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Bacon Jalapeno</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Vegetable</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Sriracha Chive</div></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
         </ul>
       </div>
 
       <div class="menu-category" id="menu-seasonal-schmears">
         <h3 class="menu-category-title">Seasonal Schmears</h3>
-        <p class="menu-note">Prices shown as 1/2 lb / on a bagel.</p>
+        <p class="menu-note">Rows with two prices show the 1/2 lb container price first, then the on-a-bagel price.</p>
         <ul class="menu-list">
-          <li class="menu-row"><div><div class="menu-item-name">Summer</div><p class="menu-item-desc">Guava or passion fruit.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Spring</div><p class="menu-item-desc">Sun dried tomato.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Fall</div><p class="menu-item-desc">Apple cinnamon pecan or pumpkin spice.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
-          <li class="menu-row"><div><div class="menu-item-name">Winter</div><p class="menu-item-desc">Everything dill pickle.</p></div><span class="menu-price">$6.99 / $5.01</span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Summer</div><p class="menu-item-desc">Guava or passion fruit.</p></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Spring</div><p class="menu-item-desc">Sun dried tomato.</p></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Fall</div><p class="menu-item-desc">Apple cinnamon pecan or pumpkin spice.</p></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
+          <li class="menu-row"><div><div class="menu-item-name">Winter</div><p class="menu-item-desc">Everything dill pickle.</p></div><span class="menu-price menu-price-pair"><span><b>1/2 lb:</b> $6.99</span><span><b>Bagel:</b> $5.01</span></span></li>
         </ul>
       </div>
 
