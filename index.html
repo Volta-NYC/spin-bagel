@@ -13,6 +13,7 @@
   --wheat:     #E2D4AE;
   --linen:     #F2EAD6;
   --forest:    #2D6A2A;
+  --forest-deep: #1F531E;
   --sage:      #5A8040;
   --ink:       #1A1410;
   --dark:      #2C2418;
@@ -20,19 +21,58 @@
   --gold:      #C8A14A;
   --gold-soft: #E2C878;
   --clay:      #7A4E2A;
-  --stone:     #7A6E5C;
+  --stone:     #51483D;
+  --stone-light: #B8AA91;
   --maze:      #3A2E1E;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-scroll-behavior: smooth;
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--ink);
   color: var(--linen);
   font-family: 'Lora', Georgia, serif;
   overflow-x: hidden;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 10000;
+  background: var(--linen);
+  color: var(--ink);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 12px 16px;
+  transform: translateY(-160%);
+  transition: transform 0.2s;
+}
+.skip-link:focus { transform: translateY(0); }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--gold-soft);
+  outline-offset: 4px;
 }
 
 /* ── LOADING SCREEN ── */
@@ -52,11 +92,11 @@ body {
   letter-spacing: 0.35em; text-transform: uppercase;
   color: var(--parchment);
 }
-.loader-text span { color: var(--forest); }
+.loader-text span { color: var(--gold-soft); }
 .loader-sub {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.62rem; letter-spacing: 0.5em;
-  text-transform: uppercase; color: var(--stone);
+  text-transform: uppercase; color: var(--stone-light);
   margin-top: -20px;
 }
 
@@ -89,7 +129,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   color: var(--wheat); text-decoration: none;
   transition: color 0.2s;
 }
-.nav-links a:hover { color: var(--sage); }
+.nav-links a:hover { color: var(--gold-soft); }
 .nav-cta {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700; font-size: 0.65rem;
@@ -99,7 +139,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   text-decoration: none;
   transition: background 0.2s;
 }
-.nav-cta:hover { background: var(--sage); }
+.nav-cta:hover { background: var(--forest-deep); }
 
 /* ── HERO ── */
 #hero {
@@ -135,7 +175,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 .hero-eyebrow {
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 0.65rem; letter-spacing: 0.6em;
-  text-transform: uppercase; color: var(--sage);
+  text-transform: uppercase; color: var(--gold-soft);
   margin-bottom: 18px; display: block;
 }
 .hero-headline {
@@ -163,7 +203,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   transition: all 0.2s; border: none; cursor: pointer;
 }
 .btn-primary { background: var(--forest); color: var(--linen); }
-.btn-primary:hover { background: var(--sage); }
+.btn-primary:hover { background: var(--forest-deep); }
 .btn-outline {
   background: transparent; color: var(--wheat);
   border: 1.5px solid rgba(226,212,174,0.4);
@@ -203,7 +243,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   letter-spacing: 0.04em; text-transform: uppercase;
   text-align: center; max-width: 820px; margin: 0 auto;
 }
-.band-quote .g { color: var(--sage); }
+.band-quote .g { color: var(--gold-soft); }
 .band-attr {
   font-family: 'Barlow Condensed'; font-size: 0.6rem;
   letter-spacing: 0.35em; text-transform: uppercase;
@@ -268,7 +308,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 .sec-num {
   font-family: 'Barlow Condensed'; font-weight: 600;
   font-size: 0.62rem; letter-spacing: 0.5em;
-  text-transform: uppercase; color: var(--forest);
+  text-transform: uppercase; color: var(--forest-deep);
   display: block; margin-bottom: 12px;
 }
 .sec-title {
@@ -310,7 +350,8 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 }
 .gallery-header { text-align: center; margin-bottom: 36px; }
 .gallery-header .sec-title { color: var(--linen); }
-.gallery-header .sec-num { color: var(--sage); }
+.gallery-header .sec-num { color: var(--gold-soft); }
+.gallery-header .sec-title .a { color: var(--gold-soft); }
 .gallery-controls {
   display: flex;
   justify-content: center;
@@ -323,7 +364,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(226,200,120,0.08);
+  background: var(--maze);
   border: 1.5px solid var(--gold);
   color: var(--gold-soft);
   font-size: 1.25rem;
@@ -367,8 +408,15 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   position: relative;
   z-index: 1;
 }
-.gallery-card { cursor: zoom-in; }
-.gallery-card:hover img { transform: scale(1.04); }
+.gallery-card {
+  cursor: zoom-in;
+  color: inherit;
+  font: inherit;
+  appearance: none;
+  text-align: inherit;
+}
+.gallery-card:hover img,
+.gallery-card:focus-visible img { transform: scale(1.04); }
 
 /* ── LIGHTBOX ── */
 #lightbox {
@@ -410,7 +458,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 #lb-counter {
   position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
   font-family: 'Barlow Condensed'; font-size: 0.65rem;
-  letter-spacing: 0.35em; text-transform: uppercase; color: var(--stone);
+  letter-spacing: 0.35em; text-transform: uppercase; color: var(--stone-light);
 }
 
 /* ── MENU ── */
@@ -522,7 +570,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 .menu-price {
   font-family: 'Barlow Condensed'; font-weight: 700;
   font-size: 1.05rem; letter-spacing: 0.06em;
-  color: var(--forest); white-space: nowrap;
+  color: var(--forest-deep); white-space: nowrap;
 }
 .menu-price-pair {
   display: flex;
@@ -563,6 +611,8 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 .craft-inner { max-width: 1120px; margin: 0 auto; position: relative; }
 .craft-header { max-width: 820px; }
 .craft-header .sec-title { color: var(--linen); }
+.craft-header .sec-title .a { color: var(--gold-soft); }
+.craft-header .sec-num { color: var(--gold-soft); }
 .craft-lead {
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   line-height: 1.75;
@@ -580,7 +630,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 .craft-step {
   font-family: 'Barlow Condensed'; font-weight: 600;
   font-size: 0.58rem; letter-spacing: 0.45em;
-  text-transform: uppercase; color: var(--sage);
+  text-transform: uppercase; color: var(--gold-soft);
   display: block; margin-bottom: 16px;
 }
 .craft-name {
@@ -590,7 +640,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   margin-bottom: 14px;
 }
 .craft-name strong { color: var(--linen); }
-.craft-body { font-size: 0.875rem; line-height: 1.8; color: var(--stone); }
+.craft-body { font-size: 0.875rem; line-height: 1.8; color: var(--stone-light); }
 
 /* ── CONTACT ── */
 .contact-section {
@@ -604,7 +654,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 .contact-col-label {
   font-family: 'Barlow Condensed'; font-weight: 700;
   font-size: 0.62rem; letter-spacing: 0.5em;
-  text-transform: uppercase; color: var(--sage);
+  text-transform: uppercase; color: var(--gold-soft);
   display: block; margin-bottom: 12px;
 }
 .contact-col-title {
@@ -620,7 +670,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 .form-field label {
   font-family: 'Barlow Condensed'; font-weight: 700;
   font-size: 0.6rem; letter-spacing: 0.35em;
-  text-transform: uppercase; color: var(--stone);
+  text-transform: uppercase; color: var(--stone-light);
 }
 .form-field input,
 .form-field textarea {
@@ -631,18 +681,29 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   transition: border-color 0.2s;
 }
 .form-field input:focus,
-.form-field textarea:focus { border-color: var(--sage); }
+.form-field textarea:focus { border-color: var(--gold-soft); }
 .form-field textarea { min-height: 130px; resize: vertical; }
 
 .attach-label {
   font-family: 'Barlow Condensed'; font-weight: 700;
   font-size: 0.6rem; letter-spacing: 0.35em;
-  text-transform: uppercase; color: var(--stone);
+  text-transform: uppercase; color: var(--stone-light);
   cursor: pointer; display: inline-flex; align-items: center; gap: 10px;
   padding: 10px 0;
+  position: relative;
 }
 .attach-label:hover { color: var(--wheat); }
-.attach-label input { display: none; }
+.attach-label:focus-within {
+  outline: 3px solid var(--gold-soft);
+  outline-offset: 4px;
+}
+.attach-label input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  overflow: hidden;
+}
 .file-item {
   display: flex; align-items: center; gap: 10px;
   font-family: 'Barlow Condensed'; font-size: 0.7rem;
@@ -661,7 +722,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   border: none; padding: 14px 36px; cursor: pointer;
   align-self: flex-start; transition: background 0.2s; margin-top: 4px;
 }
-.btn-send:hover { background: var(--sage); }
+.btn-send:hover { background: var(--forest-deep); }
 
 /* Info col */
 .contact-divider {
@@ -671,6 +732,11 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   font-family: 'Lora'; font-size: 0.95rem;
   line-height: 1.8; color: var(--wheat);
 }
+.contact-intro {
+  color: var(--stone-light);
+  font-style: italic;
+  margin-bottom: 20px;
+}
 .contact-phones {
   margin-top: 16px; display: flex; flex-direction: column; gap: 4px;
 }
@@ -679,7 +745,7 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
   letter-spacing: 0.06em; color: var(--parchment);
   text-decoration: none; transition: color 0.2s;
 }
-.contact-phones a:hover { color: var(--sage); }
+.contact-phones a:hover { color: var(--gold-soft); }
 
 .hours-title {
   font-family: 'Cinzel'; font-weight: 700;
@@ -692,13 +758,13 @@ nav.scrolled { background: rgba(26,20,16,0.97); padding: 18px 56px; }
 .hours-table tr:last-child { border-bottom: none; }
 .hours-table td {
   font-family: 'Barlow Condensed'; font-size: 0.82rem;
-  letter-spacing: 0.05em; color: var(--stone);
+  letter-spacing: 0.05em; color: var(--stone-light);
   padding: 7px 0;
 }
 .hours-table td:first-child { color: var(--wheat); width: 52px; }
 .hours-closed {
   font-family: 'Lora'; font-style: italic;
-  font-size: 0.78rem; color: var(--stone);
+  font-size: 0.78rem; color: var(--stone-light);
   margin-top: 14px; line-height: 1.6;
 }
 
@@ -725,7 +791,7 @@ footer {
 .footer-logo-text {
   font-family: 'Cinzel'; font-weight: 900;
   font-size: 0.9rem; letter-spacing: 0.2em;
-  color: var(--stone); text-transform: uppercase;
+  color: var(--stone-light); text-transform: uppercase;
 }
 .footer-links {
   list-style: none; display: flex; gap: 32px; flex-wrap: wrap;
@@ -733,14 +799,14 @@ footer {
 .footer-links a {
   font-family: 'Barlow Condensed'; font-size: 0.6rem;
   letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--stone); text-decoration: none;
+  color: var(--stone-light); text-decoration: none;
   transition: color 0.2s;
 }
-.footer-links a:hover { color: var(--sage); }
+.footer-links a:hover { color: var(--gold-soft); }
 .footer-copy {
   font-family: 'Barlow Condensed'; font-size: 0.58rem;
   letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--stone); opacity: 0.5;
+  color: var(--stone-light); opacity: 0.85;
 }
 
 /* ── SUBSCRIBE ── */
@@ -762,7 +828,7 @@ footer {
 .subscribe-sub {
   font-family: 'Barlow Condensed'; font-size: 0.75rem;
   letter-spacing: 0.25em; text-transform: uppercase;
-  color: var(--stone); margin-bottom: 28px;
+  color: var(--stone-light); margin-bottom: 28px;
 }
 .subscribe-form {
   display: flex; gap: 0; max-width: 420px; margin: 0 auto;
@@ -778,7 +844,7 @@ footer {
   padding: 14px 18px;
   outline: none;
 }
-.subscribe-form input[type="email"]::placeholder { color: var(--stone); }
+.subscribe-form input[type="email"]::placeholder { color: var(--stone-light); }
 .subscribe-form input[type="email"]:focus {
   border-color: rgba(196,184,150,0.5);
 }
@@ -792,7 +858,7 @@ footer {
   cursor: pointer;
   transition: background 0.2s;
 }
-.subscribe-form button:hover { background: var(--sage); border-color: var(--sage); }
+.subscribe-form button:hover { background: var(--forest-deep); border-color: var(--forest-deep); }
 
 /* ── SEED PARTICLE OVERLAY ── */
 #seed-overlay {
@@ -849,7 +915,7 @@ footer {
   text-decoration: none;
   transition: color 0.2s;
 }
-.nav-mobile-links a:hover { color: var(--sage); }
+.nav-mobile-links a:hover { color: var(--gold-soft); }
 .nav-mobile-cta {
   font-family: 'Barlow Condensed', sans-serif;
   font-weight: 700; font-size: 0.68rem;
@@ -858,7 +924,7 @@ footer {
   border: none; padding: 14px 36px; cursor: pointer;
   text-decoration: none; transition: background 0.2s;
 }
-.nav-mobile-cta:hover { background: var(--sage); }
+.nav-mobile-cta:hover { background: var(--forest-deep); }
 
 /* ── SCROLL SPEED INDICATOR ── */
 #spin-indicator {
@@ -881,7 +947,7 @@ footer {
 .spin-label {
   font-family: 'Barlow Condensed'; font-size: 0.5rem;
   letter-spacing: 0.35em; text-transform: uppercase;
-  color: var(--stone); writing-mode: vertical-lr;
+  color: var(--stone-light); writing-mode: vertical-lr;
 }
 
 /* ── REVEAL ANIMATIONS ── */
@@ -996,6 +1062,33 @@ footer {
     padding-left: 24px; padding-right: 24px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  #hero-img,
+  .story-photo,
+  .gallery-track {
+    transform: none !important;
+  }
+  #seed-overlay,
+  #spin-indicator,
+  .hero-scroll-hint,
+  .band-ticker {
+    display: none !important;
+  }
+}
 </style>
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -1003,26 +1096,27 @@ footer {
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- LOADING SCREEN -->
-<div id="loader">
+<div id="loader" aria-hidden="true">
   <img id="loader-img" src="bagel.png" alt="Spin Bagel" width="160" height="160">
   <div class="loader-text"><span>Spin</span> Bagel</div>
   <div class="loader-sub">Handcrafted · Slow-Fermented · Spun Daily</div>
 </div>
 
 <!-- SEED PARTICLE OVERLAY -->
-<canvas id="seed-overlay"></canvas>
+<canvas id="seed-overlay" aria-hidden="true"></canvas>
 
 <!-- SPIN SPEED INDICATOR -->
-<div id="spin-indicator">
+<div id="spin-indicator" aria-hidden="true">
   <div class="spin-label">Spin</div>
   <div class="spin-track"><div class="spin-fill" id="spin-fill"></div></div>
 </div>
 
 <!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-logo">
+<nav id="nav" aria-label="Primary navigation">
+  <a href="#hero" class="nav-logo" aria-label="Spin Bagel home">
     <img src="brand assets/bagellogo.webp" alt="Spin Bagel Logo">
     <span class="nav-logo-text">Spin Bagel</span>
   </a>
@@ -1033,13 +1127,13 @@ footer {
     <li><a href="#visit">Visit Us</a></li>
   </ul>
   <a href="#visit" class="nav-cta">Order Now</a>
-  <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-    <span></span><span></span><span></span>
+  <button class="nav-hamburger" id="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile-menu">
+    <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
   </button>
 </nav>
 
 <!-- MOBILE MENU -->
-<div class="nav-mobile-menu" id="nav-mobile-menu" aria-hidden="true">
+<div class="nav-mobile-menu" id="nav-mobile-menu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mobile navigation">
   <ul class="nav-mobile-links">
     <li><a href="#story" class="mobile-nav-link">Our Story</a></li>
     <li><a href="#menu" class="mobile-nav-link">Menu</a></li>
@@ -1049,10 +1143,12 @@ footer {
   <a href="#visit" class="nav-mobile-cta mobile-nav-link">Order Now</a>
 </div>
 
+<main id="main-content" tabindex="-1">
+
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-bg-grain"></div>
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-bg-grain" aria-hidden="true"></div>
   <img id="hero-img" src="bagel.png" alt="Spin Bagel">
   <div class="hero-content">
     <span class="hero-eyebrow">Handcrafted · Bayside · Est. 2025</span>
@@ -1063,26 +1159,26 @@ footer {
       <a href="#story" class="btn btn-outline">Our Story</a>
     </div>
   </div>
-  <div class="hero-scroll-hint">
+  <div class="hero-scroll-hint" aria-hidden="true">
     <span>Scroll to spin</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
 <!-- QUOTE BAND -->
-<div class="band-dark">
-  <div class="band-glow"></div>
+<section class="band-dark" aria-label="Sourdough fermentation">
+  <div class="band-glow" aria-hidden="true"></div>
   <div class="band-inner">
     <p class="band-quote" data-reveal="up">Our sourdough bagels undergo a unique fermentation process that allows for a <span class="g">gut friendly</span> experience.</p>
     <p class="band-attr" data-reveal="up" style="transition-delay:0.15s">— Handcrafted in Bayside, New York</p>
   </div>
-  <div class="band-ticker">
+  <div class="band-ticker" aria-hidden="true">
     <div class="band-ticker-track">
       <span>Sourdough · Slow-Fermented · No Seed Oils · Local Farms · Uncured Meats · Mediterranean Inspired · Gut Friendly · All Natural ·&nbsp;</span>
       <span>Sourdough · Slow-Fermented · No Seed Oils · Local Farms · Uncured Meats · Mediterranean Inspired · Gut Friendly · All Natural ·&nbsp;</span>
     </div>
   </div>
-</div>
+</section>
 
 <!-- STORY -->
 <section class="story-section" id="story">
@@ -1133,12 +1229,12 @@ footer {
 </section>
 
 <!-- LIGHTBOX -->
-<div id="lightbox" role="dialog" aria-modal="true">
-  <button id="lb-close" aria-label="Close">&#x2715;</button>
-  <button class="lb-btn" id="lb-prev" aria-label="Previous">&#8592;</button>
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Food image viewer" aria-hidden="true">
+  <button id="lb-close" type="button" aria-label="Close image viewer">&#x2715;</button>
+  <button class="lb-btn" id="lb-prev" type="button" aria-label="Previous image">&#8592;</button>
   <img id="lightbox-img" src="" alt="">
-  <button class="lb-btn" id="lb-next" aria-label="Next">&#8594;</button>
-  <div id="lb-counter"></div>
+  <button class="lb-btn" id="lb-next" type="button" aria-label="Next image">&#8594;</button>
+  <div id="lb-counter" aria-live="polite"></div>
 </div>
 
 <!-- GALLERY CAROUSEL -->
@@ -1154,23 +1250,23 @@ footer {
     </div>
     <div class="gallery-track-wrap">
       <div class="gallery-track" id="gallery-track">
-        <div class="gallery-card"><img src="pics/feta-inferno.jpg" alt="Spin Bagel Feta Inferno sandwich"></div>
-        <div class="gallery-card"><img src="pics/feta-inferno-1.jpg" alt="Feta Inferno bagel sandwich close-up"></div>
-        <div class="gallery-card"><img src="pics/lean-n-green.jpg" alt="Lean n Green Spin Bagel sandwich"></div>
-        <div class="gallery-card"><img src="pics/rosemary.jpg" alt="Rosemary bagel sandwich"></div>
-        <div class="gallery-card"><img src="pics/steak-and-egg.jpg" alt="Steak and egg bagel sandwich"></div>
-        <div class="gallery-card"><img src="pics/themis-blt.jpg" alt="Themis BLT bagel sandwich"></div>
-        <div class="gallery-card"><img src="pics/themis-blt-1.jpg" alt="Themis BLT bagel sandwich close-up"></div>
-        <div class="gallery-card"><img src="pics/salt-bagel.jpg" alt="Fresh salt bagel"></div>
+        <button class="gallery-card" type="button" aria-label="Open Spin Bagel Feta Inferno sandwich image"><img src="pics/feta-inferno.jpg" alt="Spin Bagel Feta Inferno sandwich"></button>
+        <button class="gallery-card" type="button" aria-label="Open Feta Inferno bagel sandwich close-up image"><img src="pics/feta-inferno-1.jpg" alt="Feta Inferno bagel sandwich close-up"></button>
+        <button class="gallery-card" type="button" aria-label="Open Lean n Green Spin Bagel sandwich image"><img src="pics/lean-n-green.jpg" alt="Lean n Green Spin Bagel sandwich"></button>
+        <button class="gallery-card" type="button" aria-label="Open Rosemary bagel sandwich image"><img src="pics/rosemary.jpg" alt="Rosemary bagel sandwich"></button>
+        <button class="gallery-card" type="button" aria-label="Open Steak and egg bagel sandwich image"><img src="pics/steak-and-egg.jpg" alt="Steak and egg bagel sandwich"></button>
+        <button class="gallery-card" type="button" aria-label="Open Themis BLT bagel sandwich image"><img src="pics/themis-blt.jpg" alt="Themis BLT bagel sandwich"></button>
+        <button class="gallery-card" type="button" aria-label="Open Themis BLT bagel sandwich close-up image"><img src="pics/themis-blt-1.jpg" alt="Themis BLT bagel sandwich close-up"></button>
+        <button class="gallery-card" type="button" aria-label="Open fresh salt bagel image"><img src="pics/salt-bagel.jpg" alt="Fresh salt bagel"></button>
         <!-- duplicates for seamless loop -->
-        <div class="gallery-card" aria-hidden="true"><img src="pics/feta-inferno.jpg" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/feta-inferno-1.jpg" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/lean-n-green.jpg" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/rosemary.jpg" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/steak-and-egg.jpg" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/themis-blt.jpg" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/themis-blt-1.jpg" alt=""></div>
-        <div class="gallery-card" aria-hidden="true"><img src="pics/salt-bagel.jpg" alt=""></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/feta-inferno.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/feta-inferno-1.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/lean-n-green.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/rosemary.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/steak-and-egg.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/themis-blt.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/themis-blt-1.jpg" alt="" loading="lazy"></div>
+        <div class="gallery-card" aria-hidden="true"><img src="pics/salt-bagel.jpg" alt="" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -1371,11 +1467,11 @@ footer {
         </div>
         <div>
           <label class="attach-label">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+            <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
             Attach Files
             <input type="file" multiple id="c-files" onchange="handleFiles(this)">
           </label>
-          <ul id="file-list" style="list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:6px;"></ul>
+          <ul id="file-list" aria-live="polite" style="list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:6px;"></ul>
         </div>
         <button type="submit" class="btn-send">Send</button>
       </form>
@@ -1385,7 +1481,7 @@ footer {
     <div class="contact-info-col" data-reveal="right">
       <span class="contact-col-label">Find Us</span>
       <h2 class="contact-col-title">Better Yet, See Us in Person!</h2>
-      <p class="contact-address" style="font-style:italic;color:var(--stone);margin-bottom:20px;">
+      <p class="contact-address contact-intro">
         We love our customers, so feel free to visit during normal business hours.
       </p>
       <p class="contact-address">
@@ -1418,11 +1514,14 @@ footer {
     <div class="subscribe-title">Subscribe</div>
     <div class="subscribe-sub">Sign up to hear from us about specials, sales, and events.</div>
     <form class="subscribe-form" onsubmit="return false;">
-      <input type="email" placeholder="Email">
+      <label class="sr-only" for="subscribe-email">Email address</label>
+      <input type="email" id="subscribe-email" name="email" placeholder="Email" autocomplete="email">
       <button type="submit">Sign Up</button>
     </form>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -1444,6 +1543,8 @@ footer {
 </footer>
 
 <script>
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ─────────────────────────────────────────────
 // LOADER BAGEL
 // ─────────────────────────────────────────────
@@ -1452,6 +1553,7 @@ let   loaderAngle = 0;
 let   loaderRAF;
 
 function animateLoader() {
+  if (reduceMotion) return;
   loaderAngle += 0.022;
   loaderImg.style.transform = `rotate(${loaderAngle}rad)`;
   loaderRAF = requestAnimationFrame(animateLoader);
@@ -1581,6 +1683,7 @@ function tickAndDrawParticles(heroBoundY) {
 
 let heroRAF;
 function animateHero() {
+  if (reduceMotion) return;
   scrollVelocity *= 0.93;
 
   bobTime += 0.008;
@@ -1610,7 +1713,7 @@ function animateHero() {
 // ─────────────────────────────────────────────
 window.addEventListener('load', () => {
   // Start hero animation early
-  animateHero();
+  if (!reduceMotion) animateHero();
 
   // Loader disappears after 2.5s
   setTimeout(() => {
@@ -1642,7 +1745,7 @@ window.addEventListener('load', () => {
   let targetX  = 0;
   let hovered  = false;
   let passivePausedUntil = 0;
-  const passiveSpeed = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 0.38;
+  const passiveSpeed = reduceMotion ? 0 : 0.38;
 
   function pausePassive(ms = 1400) {
     passivePausedUntil = Date.now() + ms;
@@ -1717,17 +1820,27 @@ window.addEventListener('load', () => {
   const lbCount = document.getElementById('lb-counter');
   const cards   = Array.from(document.querySelectorAll('.gallery-card:not([aria-hidden="true"]) img'));
   let current   = 0;
+  let lastFocused = null;
+
+  function focusableLightboxControls() {
+    return Array.from(lb.querySelectorAll('button'));
+  }
 
   function open(index) {
     current = index;
+    lastFocused = document.activeElement;
     show();
     lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    document.getElementById('lb-close').focus();
   }
 
   function close() {
     lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
   }
 
   function show() {
@@ -1749,6 +1862,18 @@ window.addEventListener('load', () => {
 
   document.addEventListener('keydown', e => {
     if (!lb.classList.contains('open')) return;
+    if (e.key === 'Tab') {
+      const controls = focusableLightboxControls();
+      const first = controls[0];
+      const last = controls[controls.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
     if (e.key === 'ArrowLeft')  prev();
     if (e.key === 'ArrowRight') next();
     if (e.key === 'Escape')     close();
@@ -1780,7 +1905,15 @@ function renderFileList() {
   attachedFiles.forEach((f, i) => {
     const li = document.createElement('li');
     li.className = 'file-item';
-    li.innerHTML = `<span>${f.name}</span><button class="file-remove" onclick="removeFile(${i})" title="Remove">✕</button>`;
+    const name = document.createElement('span');
+    name.textContent = f.name;
+    const button = document.createElement('button');
+    button.className = 'file-remove';
+    button.type = 'button';
+    button.textContent = '✕';
+    button.setAttribute('aria-label', `Remove ${f.name}`);
+    button.addEventListener('click', () => removeFile(i));
+    li.append(name, button);
     list.appendChild(li);
   });
 }
@@ -1789,6 +1922,7 @@ function renderFileList() {
 // BAGEL SPIN — native scroll impulse
 // ─────────────────────────────────────────────
 window.addEventListener('scroll', () => {
+  if (reduceMotion) return;
   const now = Date.now();
   const dy  = window.scrollY - lastScrollY;
   const dt  = Math.max(now - lastScrollTime, 1);
@@ -1830,6 +1964,7 @@ document.querySelectorAll('[data-reveal]').forEach(el => revealObs.observe(el));
 const storyPhoto = document.getElementById('story-photo');
 if (storyPhoto) {
   window.addEventListener('scroll', () => {
+    if (reduceMotion) return;
     const rect = storyPhoto.closest('.story-section').getBoundingClientRect();
     const progress = -rect.top / (window.innerHeight + rect.height);
     const shift = (progress - 0.5) * 40;
@@ -1852,22 +1987,60 @@ window.addEventListener('scroll', () => {
   const hamburger   = document.getElementById('nav-hamburger');
   const mobileMenu  = document.getElementById('nav-mobile-menu');
   const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  const pageShells = [document.querySelector('main'), document.querySelector('footer')].filter(Boolean);
 
-  function closeMenu() {
+  function setPageInert(isOpen) {
+    pageShells.forEach(el => {
+      if (isOpen) el.setAttribute('inert', '');
+      else el.removeAttribute('inert');
+    });
+  }
+
+  function closeMenu(restoreFocus = false) {
     mobileMenu.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Open menu');
     mobileMenu.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    setPageInert(false);
+    if (restoreFocus) hamburger.focus();
+  }
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', 'Close menu');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setPageInert(true);
+    mobileMenu.querySelector('a')?.focus();
   }
 
   hamburger.addEventListener('click', () => {
-    const isOpen = mobileMenu.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', String(isOpen));
-    mobileMenu.setAttribute('aria-hidden', String(!isOpen));
-    document.body.style.overflow = isOpen ? 'hidden' : '';
+    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+    if (isOpen) closeMenu();
+    else openMenu();
   });
 
-  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+  mobileLinks.forEach(link => link.addEventListener('click', () => closeMenu()));
+  document.addEventListener('keydown', e => {
+    if (hamburger.getAttribute('aria-expanded') !== 'true') return;
+    if (e.key === 'Escape') {
+      closeMenu(true);
+      return;
+    }
+    if (e.key !== 'Tab') return;
+    const focusable = [hamburger, ...mobileMenu.querySelectorAll('a')];
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  });
 })();
 </script>
 </body>
